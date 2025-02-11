@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>geoclient javascript map example</title>
+    <link rel="stylesheet" href="node_modules/ol/ol.css">
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      #search-form fieldset {
+        width: calc(50% - 30px);
+        height: 270px;
+        position: fixed;
+        left: 10px;
+        padding-top: 20px;
+      }
+      #search-form input {
+        width: 75%;
+        height: 2em;
+        margin-bottom: 2em;
+        padding: .25em;
+      }
+      #search-form #submit {
+        padding: .6em;
+      }
+      #map {
+        position: fixed;
+        width: calc(50% - 30px);
+        height: 300px;
+        right: 10px;
+      }
+      #geoclient-response {
+        position: fixed;
+        left: 10px;
+        top: 305px;
+        bottom: 10px;
+        background-color: lightgrey;
+        width: calc(100% - 40px);
+        padding: 10px;
+        overflow: scroll;
+      }
+      #search-form fieldset, #search-form input, #map, #geoclient-response {
+        border: 1px solid black;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="search-form">
+      <fieldset>
+        <label for="key">Geoclient API Key</label>
+        <input id="key"  type="password" placeholder="Enter a valid Geoclient API Key">
+        <label for="input">Location</label>
+        <input id="input" placeholder="Enter a location">
+        <button id="submit">Submit</button>
+      </fieldset>
+      <div id="map"></div>
+      <pre id="geoclient-response"></pre>
+    </form>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

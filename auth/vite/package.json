@@ -1,0 +1,38 @@
+{
+  "name": "geoclient-js-example",
+  "version": "1.0.0",
+  "description": "geocode input and display on a map",
+  "main": "main.js",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlipper/geoclient.git"
+  },
+  "keywords": [
+    "nyc",
+    "geoclient",
+    "geocoding",
+    "javascript",
+    "openlayers",
+    "osm",
+    "map"
+  ],
+  "author": "timkeane",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mlipper/geoclient/issues"
+  },
+  "homepage": "https://github.com/mlipper/geoclient#readme",
+  "dependencies": {
+    "geoclient-js-example": "file:",
+    "ol": "10.4.0",
+    "proj4": "latest"
+  },
+  "devDependencies": {
+    "vite": "^3.2.3"
+  }
+}

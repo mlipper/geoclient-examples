@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>geoclient vanilla javascript example</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      #search-form fieldset {
+        height: 5vw;
+      }
+      #search-form input {
+        width: 15em;
+        height: 2em;
+        margin: 1em 2em 1em .25em;
+        padding: .25em;
+      }
+      #search-form button {
+        padding: .6em;
+      }
+      #geoclient-response {
+        height: 65vw;
+        background-color: lightgrey;
+        padding: 1em;
+        overflow: scroll;
+      }
+      #search-form fieldset, #search-form input, #geoclient-response {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="search-form">
+      <fieldset>
+        <label for="key">Geoclient API Key</label>
+        <input id="key"  type="password" placeholder="Enter a valid Geoclient API Key">
+        <label for="input">Location</label>
+        <input id="input" placeholder="Enter a location">
+        <button>Submit</button>
+      </fieldset>
+      <pre id="geoclient-response"></pre>
+    </form>
+    <script>
+        const url = 'https://api.nyc.gov/geoclient/v2/search';
+
+        const form = document.getElementById('search-form');
+
+        const displayGeoClientResponse = geoClientResponse => {
+            const json = JSON.stringify(geoClientResponse, null, 2);
+            document.getElementById('geoclient-response').innerHTML = json;
+        }
+
+        const displayError = error => {
+            document.getElementById('geoclient-response').innerHTML = error;
+        }
+
+        const submit = event => {
+            event.preventDefault();
+            document.getElementById('geoclient-response').innerHTML = '';
+            
+            fetch(`${url}?input=${form.input.value}`, {
+                method: 'GET',
+                headers: {
+                    'Ocp-Apim-Subscription-Key': form.key.value,
+                    'Cache-Control': 'no-cache'
+                }
+            }).then(response => {
+                response.json().then(displayGeoClientResponse);
+            }).catch(displayError);
+
+        }
+
+        form.addEventListener('submit', submit);
+
+    </script>
+  </body>
+</html>
