@@ -7,11 +7,13 @@
     <style>
       body {
         font-family: sans-serif;
+        color: DimGray;
       }
       #search-form fieldset {
+        position: fixed;
         width: calc(50% - 30px);
         height: 270px;
-        position: fixed;
+        font-weight: bold;
         left: 10px;
         padding-top: 20px;
       }
@@ -23,6 +25,7 @@
       }
       #search-form #submit {
         padding: .6em;
+        font-weight: bold;
       }
       #map {
         position: fixed;
@@ -35,13 +38,16 @@
         left: 10px;
         top: 305px;
         bottom: 10px;
-        background-color: lightgrey;
         width: calc(100% - 40px);
         padding: 10px;
         overflow: scroll;
       }
-      #search-form fieldset, #search-form input, #map, #geoclient-response {
-        border: 1px solid black;
+      #search-form fieldset, #geoclient-response {
+        background-color: WhiteSmoke;
+      }
+     #search-form fieldset, #search-form input, #map, #geoclient-response {
+        border: 1px solid LightGray;
+        border-radius: .25em;
         display: block;
       }
     </style>

@@ -4,11 +4,21 @@
     <meta charset="UTF-8">
     <title>geoclient vanilla javascript example</title>
     <style>
-      body {
+      html, body {
         font-family: sans-serif;
+        width: 100%;
+        height: 100%;
+        margin: 0; 
+        padding: 0;
+        color: DimGray;
+      }
+      #search-form {
+        margin: 10px;
+        height: calc(100% - 20px);
       }
       #search-form fieldset {
-        height: 5vw;
+        height: 60px;
+        font-weight: bold;
       }
       #search-form input {
         width: 15em;
@@ -18,15 +28,21 @@
       }
       #search-form button {
         padding: .6em;
+        font-weight: bold;
       }
       #geoclient-response {
-        height: 65vw;
-        background-color: lightgrey;
+        display: block;
+        min-height: 100%;
+        width: auto;
         padding: 1em;
-        overflow: scroll;
+        overflow-x: auto;
       }
-      #search-form fieldset, #search-form input, #geoclient-response {
-        border: 1px solid black;
+      #search-form fieldset, #geoclient-response {
+        background-color: WhiteSmoke;
+      }
+      #search-form fieldset, #search-form input, #search-form button, #geoclient-response {
+        border: 1px solid LightGray;
+        border-radius: .25em;
       }
     </style>
   </head>
