@@ -48,7 +48,7 @@ if [ $# -gt 0 ]; then
 fi
 
 curl -k -s --get \
-     --data-urlencode "input=${location}" \
+     --data-urlencode "input=${location:-${DEFAULT_LOCATION}}" \
      -H "Cache-Control: no-cache" \
      -H "Ocp-Apim-Subscription-Key: ${GEOCLIENT_KEY}" \
      "${GEOCLIENT_URL}/search"
