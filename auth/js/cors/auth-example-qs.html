@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>geoclient vanilla javascript example</title>
+    <!-- 
+    This example is the same as file auth-example.html except it provides
+    the subscription key on the HTTP query string instead of an HTTP header.
+    -->
+    <style>
+      html, body {
+        font-family: sans-serif;
+        width: 100%;
+        height: 100%;
+        margin: 0; 
+        padding: 0;
+        color: DimGray;
+      }
+      #search-form {
+        margin: 10px;
+        height: calc(100% - 20px);
+      }
+      #search-form fieldset {
+        height: 60px;
+        font-weight: bold;
+      }
+      #search-form input {
+        width: 15em;
+        height: 2em;
+        margin: 1em 2em 1em .25em;
+        padding: .25em;
+      }
+      #search-form button {
+        padding: .6em;
+        font-weight: bold;
+      }
+      #geoclient-response {
+        display: block;
+        min-height: 100%;
+        width: auto;
+        padding: 1em;
+        overflow-x: auto;
+      }
+      #search-form fieldset, #geoclient-response {
+        background-color: WhiteSmoke;
+      }
+      #search-form fieldset, #search-form input, #search-form button, #geoclient-response {
+        border: 1px solid LightGray;
+        border-radius: .25em;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="search-form">
+      <fieldset>
+        <label for="key">Geoclient API Key</label>
+        <input id="key"  type="password" placeholder="Enter a valid Geoclient API Key">
+        <label for="input">Location</label>
+        <input id="input" placeholder="Enter a location">
+        <button>Submit</button>
+      </fieldset>
+      <pre id="geoclient-response"></pre>
+    </form>
+    <script>
+        const url = 'https://api.nyc.gov/geoclient/v2/search';
+
+        const form = document.getElementById('search-form');
+
+        const displayGeoClientResponse = geoClientResponse => {
+            const json = JSON.stringify(geoClientResponse, null, 2);
+            document.getElementById('geoclient-response').innerHTML = json;
+        }
+
+        const displayError = error => {
+            document.getElementById('geoclient-response').innerHTML = error;
+        }
+
+        const submit = event => {
+            event.preventDefault();
+            document.getElementById('geoclient-response').innerHTML = '';
+            
+            fetch(`${url}?input=${form.input.value}&key=${form.key.value}`, {
+                method: 'GET',
+                headers: {
+                    'Cache-Control': 'no-cache'
+                }
+            }).then(response => {
+                response.json().then(displayGeoClientResponse);
+            }).catch(displayError);
+
+        }
+
+        form.addEventListener('submit', submit);
+
+    </script>
+  </body>
+</html>
