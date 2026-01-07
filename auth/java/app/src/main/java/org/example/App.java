@@ -7,7 +7,6 @@ import java.net.http.HttpResponse;
 import java.net.http.HttpHeaders;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.List;
 
 public class App {
 
@@ -44,9 +43,6 @@ public class App {
                     .header("Accept", "application/json")
                     .GET()
                     .build();
-
-            //List<String> keyValues = request.headers().allValues(HEADER_KEY_NAME);
-            //System.out.println("Value of " + HEADER_KEY_NAME + " header: " + keyValues.get(0));
 
             // Send the request and get the response
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
