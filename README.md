@@ -79,5 +79,5 @@ some tests will fail.
 ### NYC Developer Portal
 
 This example demonstrates using the popular python `requests` project and
-`json` built-in module to call `geoclient v1` through NYC Developer Portal's
+`json` built-in module to call `geoclient v2` through NYC Developer Portal's
 API Gateway.
