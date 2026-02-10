@@ -81,3 +81,10 @@ some tests will fail.
 This example demonstrates using the popular python `requests` project and
 `json` built-in module to call `geoclient v2` through NYC Developer Portal's
 API Gateway.
+
+## Geoclient R Examples
+
+The `R` directory contains `geocode.R` contributed by `@claireboyd`. This
+example demonstrates how to accomplish the similar work in `R` as Edgar Alfonseca's
+python example in `python/pandas/binpandas.py`.
+
